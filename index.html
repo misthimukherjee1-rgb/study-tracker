@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Realtime Study Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Realtime Study Tracker</h1>
+      <p class="sub">Pomodoro + Stopwatch • Saves automatically</p>
+    </header>
+
+    <section class="card timer-card">
+      <div class="mode">
+        <button id="modePomodoro" class="pill active">Pomodoro</button>
+        <button id="modeStopwatch" class="pill">Stopwatch</button>
+      </div>
+
+      <div class="time" id="timeDisplay">25:00</div>
+
+      <div class="controls">
+        <button id="startBtn" class="primary">Start</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="resetBtn" class="danger">Reset</button>
+      </div>
+
+      <div class="settings" id="pomoSettings">
+        <div class="field">
+          <label>Focus (min)</label>
+          <input id="focusMin" type="number" min="1" max="180" value="25" />
+        </div>
+        <div class="field">
+          <label>Break (min)</label>
+          <input id="breakMin" type="number" min="1" max="60" value="5" />
+        </div>
+      </div>
+
+      <div class="status" id="statusText">Ready to focus.</div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Today</h2>
+        <div class="stats">
+          <div>
+            <div class="label">Total Focus</div>
+            <div class="value" id="todayFocus">0m</div>
+          </div>
+          <div>
+            <div class="label">Sessions</div>
+            <div class="value" id="todaySessions">0</div>
+          </div>
+        </div>
+        <button id="clearToday" class="link">Clear today</button>
+      </div>
+
+      <div class="card">
+        <h2>Last 7 Days</h2>
+        <canvas id="chart" height="140"></canvas>
+        <p class="hint">Auto-updates when you complete focus sessions.</p>
+      </div>
+    </section>
+
+    <footer>
+      <span>Made with HTML/CSS/JS • Works offline • Data stored in your browser</span>
+    </footer>
+  </div>
+
+  <!-- Tiny chart lib (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
